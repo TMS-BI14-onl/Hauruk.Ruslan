@@ -17,11 +17,11 @@ WHERE StandardPrice > 10 AND (Name LIKE '%X%' OR Name LIKE 'N%')
 
 
 --c)
-SELECT vv.Name
+SELECT DISTINCT Name
 FROM Purchasing.ProductVendor AS v
 	 LEFT JOIN Purchasing.Vendor AS vv
 	 ON v.BusinessEntityID = vv.BusinessEntityID
-	 WHERE vv.BusinessEntityID IS NULL
+	 WHERE [OnOrderQty] IS NULL
 
 
 --Задание 3
