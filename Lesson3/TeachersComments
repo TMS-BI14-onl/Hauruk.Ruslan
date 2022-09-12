@@ -1,0 +1,9 @@
+Well done!
+
+2.
+c) -1
+You should use the other order for join: Vendor LEFT JOIN ProductVendor.
+You even didn't have any rows for result - that could give you a hint :)
+
+
+Mark: 9
