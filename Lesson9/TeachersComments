@@ -1,0 +1,6 @@
+Well done!
+
+-0.5
+In your case table B is table od sons (because you use id_father which is if of a father for particular id of a person), so WHERE clause should use b.name, not a.name.
+
+Mark: 10
