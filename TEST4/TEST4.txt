@@ -42,7 +42,7 @@ GROUP BY Name
 4)SELECT TOP 5 User.NAME
 FROM User as U 
 	LEFT JOIN Phone as P ON U.id=P.user_id
-WHERE P.name LIKE '3%4' OR P.age > 34
+WHERE P.name LIKE '+3%4' OR P.age > 34
 
 5)
 SELECT TOP 5 U.NAME, Pr.count
