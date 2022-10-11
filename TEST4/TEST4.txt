@@ -1,0 +1,52 @@
+1)
+INSERT manufacturer
+ VALUES ('HP','4')
+
+2)UPDATE USER
+SET AGE=AGE/3
+FROM
+(SELECT AGE
+FR0M USER
+WHERE Name LIKE 'Андрей')
+
+3)SELECT Name
+FROM product
+WHERE (SELECT MAX(PRICE)
+	FROM Product)
+
+SELECT Name
+FROM    
+(
+SELECT  *
+ROW_NUMBER() OVER (PARTITION BY Name ORDER BY Price DESC) ROW_NUM
+FROM Product) all products
+WHERE ROW_NUM = 1
+
+
+SELECT  a.Name
+FROM    Product a
+        INNER JOIN
+        (
+            SELECT Name, MAX(Price) maxPrice
+            FROM Product
+            GROUP BY Name
+        ) b ON a.Name = b.Name AND
+                a.price = b.maxPrice
+
+SELECT   Name,max(Price) as ProdPrice
+FROM     Product
+GROUP BY Name
+
+
+
+4)SELECT TOP 5 User.NAME
+FROM User as U 
+	LEFT JOIN Phone as P ON U.id=P.user_id
+WHERE P.name LIKE '3%4' OR P.age > 34
+
+5)
+SELECT TOP 5 U.NAME, Pr.count
+FROM (SELECT U.Name,MAX(Pr.count)
+	FROM User as U LEFT JOIN Order as O ON U.Id=O.user_id
+	LEFT JOIN Product as Pr ON O.Product_id=Pr.Id
+	GROUP BY Pr.Count DESC)
